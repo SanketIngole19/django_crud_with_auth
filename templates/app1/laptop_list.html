@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+    <title>SHOW LAPTOP</title>
+    {% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>LAPTOP ID</th>
+            <th>MODEL</th>
+            <th>BRAND</th>
+            <th>RAM</th>
+            <th>PROCESSOR</th>
+            <th>PRICE</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in data %}
+        <tr>
+            <td>{{ record.laptop_id }}</td>
+            <td>{{ record.model_name }}</td>
+            <td>{{ record.brand }}</td>
+            <td>{{ record.ram }}</td>
+            <td>{{ record.processor }}</td>
+            <td>{{ record.price }}</td>
+            <td>
+                <a href="{% url 'update_url' record.id %}"><button class="btn-outline-warning btn-sm me-3">UPDATE</button></a>
+                <a href="{% url 'delete_url' record.id %}"><button class="btn-outline-danger btn-sm">DELETE</button></a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}

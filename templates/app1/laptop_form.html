@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    <title>LAPTOP FORM</title>
+
+{% endblock %}
+
+{% block content %}
+    <center><h1><u>LAPTOP FORM</u></h1></center>
+    <form method="post" class="container bg-light mt-5">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="ADD LAPTOP" class="btn-outline-success col-6">
+        <input type="reset" value="RESET" class="btn-outline-warning col-6 float-end">
+    </form>
+{% endblock %}
